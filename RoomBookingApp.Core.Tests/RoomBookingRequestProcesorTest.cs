@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using RoomBookingApp.Core.Models;
+using RoomBookingApp.Core.Processors;
 using Shouldly;
+using Xunit;
 
 namespace RoomBookingApp.Core.Tests
 {
@@ -30,11 +26,6 @@ namespace RoomBookingApp.Core.Tests
             RoomBookingResult result = processor.BookRoom(request);
 
             //Assert
-
-            Assert.NotNull(result);
-            Assert.Equal(request.FullName, result.FullName);
-            Assert.Equal(request.Email, result.Email);
-            Assert.Equal(request.Date, result.Date);
 
             result.ShouldNotBeNull();
             result.FullName.ShouldBe(request.FullName);

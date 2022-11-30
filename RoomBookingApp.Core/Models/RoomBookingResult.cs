@@ -1,4 +1,4 @@
-﻿namespace RoomBookingApp.Core.Tests
+﻿namespace RoomBookingApp.Core.Models
 {
     public class RoomBookingResult
     {
