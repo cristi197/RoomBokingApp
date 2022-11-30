@@ -1,10 +1,11 @@
-﻿using RoomBookingApp.Core.Models;
+﻿using RoomBookingApp.Core.DataServices;
+using RoomBookingApp.Core.Models;
 
 namespace RoomBookingApp.Core.Processors
 {
     public class RoomBookingRequestProcesor
     {
-        public RoomBookingRequestProcesor()
+        public RoomBookingRequestProcesor(IRoomBookingService @object)
         {
         }
 
