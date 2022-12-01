@@ -18,12 +18,13 @@ namespace RoomBookingApp.Persistence.Repositories
         }
         public IEnumerable<Room> GetAvailableRooms(DateTime date)
         {
-            return _context.Rooms.Where(q => q.RoomBookings.Any(x=>x.Date == date) == false).ToList();
+            return _context.Rooms.Where(q => q.RoomBookings.Any(x => x.Date == date) == false).ToList();
         }
 
         public void Save(RoomBooking roomBooking)
         {
-            throw new NotImplementedException();
+            _context.Add(roomBooking);
+            _context.SaveChanges();
         }
     }
 }
