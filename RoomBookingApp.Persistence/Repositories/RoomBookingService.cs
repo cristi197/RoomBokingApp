@@ -10,9 +10,15 @@ namespace RoomBookingApp.Persistence.Repositories
 {
     public class RoomBookingService : IRoomBookingService
     {
+        private readonly RoomBookingAppDbContext _context;
+
+        public RoomBookingService(RoomBookingAppDbContext context)
+        {
+            this._context = context;
+        }
         public IEnumerable<Room> GetAvailableRooms(DateTime date)
         {
-            throw new NotImplementedException();
+            return _context.Rooms.Where(q => q.RoomBookings.Any(x=>x.Date == date) == false).ToList();
         }
 
         public void Save(RoomBooking roomBooking)
