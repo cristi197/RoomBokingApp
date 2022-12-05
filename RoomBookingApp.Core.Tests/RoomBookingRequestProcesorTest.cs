@@ -12,7 +12,7 @@ namespace RoomBookingApp.Core.Tests
 {
     public class RoomBooking_requestProcesorTest
     {
-        private RoomBookingRequestProcesor _processor;
+        private RoomBookingRequestProcessor _processor;
         private RoomBookingRequest _request;
         private Mock<IRoomBookingService> _roomBookingServiceMock;
         private List<Room> _availableRooms;
@@ -30,7 +30,7 @@ namespace RoomBookingApp.Core.Tests
 
             _roomBookingServiceMock = new Mock<IRoomBookingService>();
             _roomBookingServiceMock.Setup(q => q.GetAvailableRooms(_request.Date)).Returns(_availableRooms);
-            _processor = new RoomBookingRequestProcesor(_roomBookingServiceMock.Object);
+            _processor = new RoomBookingRequestProcessor(_roomBookingServiceMock.Object);
 
         }
         [Fact]

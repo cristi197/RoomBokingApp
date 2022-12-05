@@ -6,11 +6,11 @@ using RoomBookingApp.Domain.BaseModels;
 
 namespace RoomBookingApp.Core.Processors
 {
-    public class RoomBookingRequestProcesor
+    public class RoomBookingRequestProcessor : IRoomBookingRequestProcessor
     {
         private readonly IRoomBookingService _roomBookingService;
 
-        public RoomBookingRequestProcesor(IRoomBookingService roomBookingService)
+        public RoomBookingRequestProcessor(IRoomBookingService roomBookingService)
         {
             this._roomBookingService = roomBookingService;
         }
@@ -32,7 +32,7 @@ namespace RoomBookingApp.Core.Processors
                 roomBooking.RoomId = room.Id;
                 _roomBookingService.Save(roomBooking);
 
-                result.RoomBookingId= roomBooking.Id;
+                result.RoomBookingId = roomBooking.Id;
                 result.Flag = BookingResultFlag.Success;
             }
             else
